@@ -38,7 +38,11 @@ public class ProductService {
     }
 
     public Product buyProduct (Long id, Product product) {
+        Product p =  productRepository.findById(id).get();
 
+        p.addStock();
+        productRepository.save(p);
+        return p;
     }
 
     public Product updateProduct(Long id, Product product) {
