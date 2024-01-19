@@ -26,11 +26,19 @@ public class ProductService {
     }
 
     public Product sellProduct(Long id, Product product) {
+        Product p = productRepository.findById(id).get();
 
+        if (p.getStock() <= 0) {
+            throw new IllegalArgumentException("No hay en stock");
+        }
+
+        p.decrementStock();
+        productRepository.save(p);
+        return p;
     }
 
     public Product buyProduct (Long id, Product product) {
-        
+
     }
 
     public Product updateProduct(Long id, Product product) {

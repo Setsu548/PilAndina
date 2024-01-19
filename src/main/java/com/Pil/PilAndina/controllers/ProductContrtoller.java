@@ -28,6 +28,11 @@ public class ProductContrtoller {
         return productService.createProduct(product);
     }
 
+    @PutMapping("/comprar/{id}")
+    public Product sellProductById(@PathVariable("id") Long id, @RequestBody Product product) {
+        return productService.sellProduct(id,product);
+    }
+
     @PutMapping("/{id}")
     public Product updateProduct(@PathVariable("id") Long id, @RequestBody Product product){
         return productService.updateProduct(id, product);

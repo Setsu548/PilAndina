@@ -29,4 +29,15 @@ public class Product {
     @Column(name = "product_image")
     private String product_image;
 
+    public int getStock() {
+        return stock;
+    }
+
+    public void addStock() {
+        this.stock++;
+    }
+
+    public void decrementStock() {
+        this.stock--;
+    }
 }
